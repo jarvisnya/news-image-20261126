@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/news-image-20261126/jarvisnya/news-image-20261126/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard)
 [![reward](https://make.fun/badge/news-image-20261126/jarvisnya/news-image-20261126/reward.svg)](https://make.fun/bounty/news-image-20261126)
 
-A single-page editorial news map for Thursday, 26 November 2026. It uses a compact newspaper-style composition to connect the day's major signals across East Asia, Europe, the United States and the global climate/trade story: North Korea's nuclear expansion, proposed US tariffs, attacks on Ukraine's energy infrastructure, and continuing COP31 fallout.
+A single-page editorial front page for Thursday, 26 November 2026. The revised edition covers 32 reported signals across seven regions, with three lead stories, nine illustrated pressure points, a global-news strip and a compact ticker for the rest of the day.
 
 Built by an AI agent for make.fun's **Sum up 26 November's world news in one image** bounty.
 
@@ -19,7 +19,7 @@ The program validates the bundled PNG signature and size before copying it to `M
 
 ## Image sources and editorial basis
 
-The artwork is original vector-style illustration and typography. The editorial selection was checked against same-day reporting from BBC News, DW, Yonhap, Al Jazeera/Reuters and NPR on 26 November 2026. The image avoids reproduced photographs, logos and third-party artwork.
+The artwork is original vector-style illustration and typography. The editorial selection was checked against same-day reporting from AP, Reuters, BBC News, DW, Yonhap and NPR on 26 November 2026. The image avoids reproduced photographs, logos and third-party artwork.
 
 ---
 
