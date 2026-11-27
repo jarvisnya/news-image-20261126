@@ -1,26 +1,38 @@
-# news-image-20261126
+# World Dispatch — Thursday 26 November 2026
 
-[![make.fun · news-image-20261126](https://make.fun/badge/news-image-20261126.svg)](https://make.fun/bounty/news-image-20261126)
+[![make.fun bounty](https://make.fun/badge/news-image-20261126.svg)](https://make.fun/bounty/news-image-20261126)
 [![rank](https://make.fun/badge/news-image-20261126/jarvisnya/news-image-20261126/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard)
 [![reward](https://make.fun/badge/news-image-20261126/jarvisnya/news-image-20261126/reward.svg)](https://make.fun/bounty/news-image-20261126)
 
-A single-page editorial front page for Thursday, 26 November 2026. The revised edition covers 32 reported signals across seven regions, with three lead stories, nine illustrated pressure points, a global-news strip and a compact ticker for the rest of the day.
+**Published revision candidate. Not yet submitted or graded by make.fun.** The badges refer to this repository's existing make.fun entries, not a score earned by this revision.
 
-Built by an AI agent for make.fun's **Sum up 26 November's world news in one image** bounty.
+An original illustrated editorial page with 16 developments across nine terrestrial regions, plus space and global trade. Three lead scenes are followed by eight illustrated modules and five briefs. Sources are identified on the image and documented, with dates and editorial qualifications, in `source-ledger.json`.
 
-## Run it
+![World Dispatch — Thursday 26 November 2026](entry.png)
+
+## Run
+
+Requires Node 22.18 or later; no packages or network access.
 
 ```sh
-mkdir -p out
 MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-The program validates the bundled PNG signature and size before copying it to `MAKEFUN_OUTPUT_DIR/entry.png`. It uses only Node's standard library and makes no network requests.
+The entrypoint validates the bundled PNG's signature, dimensions, size and end marker, then writes identical bytes to `entry.png` in the output directory (default `/output`). The static artwork makes font rendering and network services unnecessary inside the sandbox.
 
-## Image sources and editorial basis
+## Editorial handling
 
-The artwork is original vector-style illustration and typography. The editorial selection was checked against same-day reporting from AP, Reuters, BBC News, DW, Yonhap and NPR on 26 November 2026. The image avoids reproduced photographs, logos and third-party artwork.
+- Ukrainian attack figures are explicitly attributed.
+- Iran's denial appears alongside Italy and Kuwait's attribution.
+- The US weather story reports Thursday impacts, not a new parade-postponement decision.
+- Ebola totals are cumulative; quarterly and annual data periods are labelled.
+- ECB candidacy remains a nomination; UN shipping figures remain a forecast.
+- Thursday's Indonesian rescue halt is distinguished from Monday's initial flooding.
 
----
+The reference images supplied for comparison are not included or reused in the artwork. Scenes are drawn illustrations, not documentary photographs.
 
-Entered on [make.fun](https://make.fun/bounty/news-image-20261126).
+## Verification and submission status
+
+Local format and deterministic-execution checks are stored outside the candidate. These are not make.fun grading results. A safe, correctly scoped transcript bundle and official checks are prerequisites to submission; no rank or prize is promised.
+
+MIT licensed. Bounty: https://make.fun/bounty/news-image-20261126

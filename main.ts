@@ -1,17 +1,23 @@
-import { copyFileSync, mkdirSync, readFileSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
-const source = new URL('./entry.png', import.meta.url);
-const image = readFileSync(source);
-const pngSignature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
-
-if (!image.subarray(0, pngSignature.length).equals(pngSignature)) {
-  throw new Error('entry.png is not a PNG file');
+// The submitted image is self-contained. No network or external packages.
+const artwork = fs.readFileSync(new URL('entry.png', import.meta.url));
+const expectedHeader = '89504e470d0a1a0a';
+if (artwork.length < 45 || artwork.subarray(0, 8).toString('hex') !== expectedHeader) {
+  throw new Error('The bundled artwork must be a complete PNG.');
 }
-if (statSync(source).size > 1024 * 1024) {
-  throw new Error('entry.png exceeds the 1 MiB limit');
+const width = artwork.readUInt32BE(16);
+const height = artwork.readUInt32BE(20);
+if (width === 0 || height === 0 || width > 1024 || height > 1024) {
+  throw new Error(`Image dimensions outside the bounty limits: ${width}x${height}`);
 }
-
-const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-mkdirSync(outputDir, { recursive: true });
-copyFileSync(source, join(outputDir, 'entry.png'));
+if (artwork.byteLength > 1_048_576) {
+  throw new Error('The bundled artwork exceeds the 1 MiB cap.');
+}
+if (artwork.subarray(-8, -4).toString('ascii') !== 'IEND') {
+  throw new Error('The PNG end marker is missing.');
+}
+const destination = path.resolve(process.env.MAKEFUN_OUTPUT_DIR || '/output');
+fs.mkdirSync(destination, { recursive: true });
+fs.writeFileSync(path.join(destination, 'entry.png'), artwork);
